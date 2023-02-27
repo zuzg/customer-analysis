@@ -1,0 +1,13 @@
+name: asseco
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - jupyter
+  - numpy
+  - matplotlib
+  - pandas
+  - plotly
+  - seaborn
+  - scikit-learn
