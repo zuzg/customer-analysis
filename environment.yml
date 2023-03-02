@@ -1,4 +1,4 @@
-name: asseco
+name: customer-analysis
 channels:
   - conda-forge
   - defaults
