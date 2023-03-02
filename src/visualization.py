@@ -32,10 +32,16 @@ def plot_customers_scatter(df: pd.DataFrame) -> None:
     customers_agg['Customer info'] = customers_agg.index
     customers_agg[['CustomerId', 'CustomerType', 'CustomerChannel']] = pd.DataFrame(
         customers_agg['Customer info'].tolist(), index=customers_agg.index)
+    
     fig = px.scatter(customers_agg, x=customers_agg.TransactionCount, y=customers_agg.TransactionSum,
                      symbol="CustomerType", color="CustomerChannel", opacity=0.5, hover_data=['CustomerId'])
     fig.update_layout(title="Customers's transactions")
     fig.show()
+
+    print("Greatest count of transactions")
+    print(f"id: {customers_agg.TransactionCount.argmax()} count: {max(customers_agg.TransactionCount)}")
+    print("Greatest sum of transactions")
+    print(f"id: {customers_agg.TransactionSum.argmax()} sum: {max(customers_agg.TransactionSum)}")
 
 
 def plot_alcohol_classes(df: pd.DataFrame) -> None:
