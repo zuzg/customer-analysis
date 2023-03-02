@@ -56,3 +56,18 @@ def aggregate_by_id(df: pd.DataFrame) -> pd.DataFrame:
 
     data_agg.columns = ["TransactionCount", "TransactionSum"] + data_agg.columns[2:].tolist()
     return data_agg
+
+
+def aggregate_transactions(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Prepare data for apriori algorithm
+    """
+    alcohols = split_alcohol_column(df)
+    alcohols['Alcohol'] = alcohols['AlcoholName'] + alcohols['AlcoholClass']
+    one_hot = one_hot_encode(alcohols, "Alcohol")
+    products = pd.concat([df.TransactionDate, one_hot], axis=1)
+
+    # we are in interested whether a product was bought, not how many times
+    # therefore aggregating by max, which will be 1 or 0
+    transactions = products.groupby([products.CustomerId, products.TransactionDate]).max()
+    return transactions

@@ -11,3 +11,4 @@ dependencies:
   - plotly
   - seaborn
   - scikit-learn
+  - mlxtend
