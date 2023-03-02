@@ -8,7 +8,8 @@ By odtworzyć notebooki, należy:
 ```
 git clone https://github.com/zuzg/customer-analysis.git
 ```
-2. Utworzyć środowisko. Przygotowany plik jest kompatybilny z menadżerem pakietów conda. Zmienić folder na repozytorium i wykonać komendę
+2. W repozytorium utworzyć folder `data` i umieścić tam rozpakowany plik z danymi.
+3. Utworzyć środowisko. Przygotowany plik jest kompatybilny z menadżerem pakietów conda. Zmienić folder na repozytorium i wykonać komendę
 ```
 conda env create -f environment.yml
 ```
